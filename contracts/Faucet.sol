@@ -9,7 +9,6 @@ contract Faucet {
   }
   
   function withdraw(uint _amount) payable public {
-    // users can only withdraw .1 ETH at a time, feel free to change this!
     require(_amount <= 100000000000000000);
     (bool sent, ) = payable(msg.sender).call{value: _amount}("");
     require(sent, "Failed to send Ether");
